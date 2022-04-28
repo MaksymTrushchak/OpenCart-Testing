@@ -10,7 +10,6 @@ namespace OpenCartClasses
         static void Main(string[] args)
         {
             WebDriver driver = new ChromeDriver();
-            //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             driver.Navigate().GoToUrl("http://localhost/opencart/upload/");
             driver.Manage().Window.Maximize();
 
