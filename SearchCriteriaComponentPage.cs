@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Opencart
 {
-    class Class1
+    class SearchCriteriaComponentPage
     {
+        asdasd
     }
 }
