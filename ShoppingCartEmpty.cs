@@ -1,9 +1,9 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
-namespace ShoppingCartEmpty
+namespace ShoppingCartFunctionals
 {
-    class ShoppingCartEmpty
+    class ShippingCartEmpty
     {
         static void Main()
         {
