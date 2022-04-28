@@ -5,7 +5,7 @@ namespace ShoppingCartFunctionals
 {
     class ShippingCartEmpty
     {
-        static void Main()
+        static void EmptyCart()
         {
             WebDriver driver = new ChromeDriver();
             driver.Navigate().GoToUrl("http://localhost/opencart/upload/");

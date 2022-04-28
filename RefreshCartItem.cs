@@ -5,7 +5,7 @@ namespace ShoppingCartFunctionals
 {
     class RefreshCartItem
     {
-        static void Main()
+        static void Refresh()
         {
             WebDriver driver = new ChromeDriver();
             driver.Navigate().GoToUrl("http://localhost/opencart/upload/index.php?route=checkout/cart");
