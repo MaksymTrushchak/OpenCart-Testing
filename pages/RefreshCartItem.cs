@@ -11,7 +11,7 @@ namespace ShoppingCartFunctionals
             driver.Navigate().GoToUrl("http://localhost/opencart/upload/index.php?route=checkout/cart");
             driver.Manage().Window.Maximize();
 
-            driver.FindElement(By.XPath("//*[@id='content']/form/div/table/tbody/tr[1]/td[4]/div/span/button[1]")).Click();
+            IWebElement refreshItem = driver.FindElement(By.XPath("//*[@id='content']/form/div/table/tbody/tr[1]/td[4]/div/span/button[1]"));
 
             driver.Quit();
         }
