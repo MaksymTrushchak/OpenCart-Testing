@@ -4,7 +4,12 @@ using System.Text;
 
 namespace ConsoleApp1
 {
-    class Class1
+    class SearchCriteriaComponentPage
     {
+        askdjnaskldnas
+
+
+
+
     }
 }
