@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
-namespace Opencart_CartFunctionals
+namespace ShoppingCart
 {
     class ShoppingCart
     {
