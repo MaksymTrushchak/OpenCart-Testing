@@ -1,21 +1,17 @@
-﻿using System;
-using System.Threading;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
-namespace OpenCartClasses
+namespace Opencart_CartFunctionals
 {
     class ShoppingCartEmpty
     {
-        static void Main(string[] args)
+        static void Nain()
         {
             WebDriver driver = new ChromeDriver();
             driver.Navigate().GoToUrl("http://localhost/opencart/upload/");
             driver.Manage().Window.Maximize();
 
-            driver.FindElement(By.Id("cart")).Click();
-
-            Thread.Sleep(2000);
+            driver.FindElement(By.XPath("//*[@id='cart']/button")).Click();
 
             driver.Quit();
         }
