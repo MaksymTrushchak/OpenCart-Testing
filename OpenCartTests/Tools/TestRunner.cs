@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-//using OpenCartTests.Pages;
+using OpenCart.Pages;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
@@ -15,24 +15,22 @@ namespace OpenCart.Tools
         protected IWebDriver driver;
 
         protected abstract string OpenCartURL { get; }
-
+        /*
         [SetUp]
         public void BeforeEachMethod()
         {
-            driver = new ChromeDriver();
+            driver = new ChromeDriver(@"C:\Users\maxtr\OneDrive\Робочий стіл\SoftServe\Drivers");
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
             driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl(OpenCartURL);
         }
-
+        */
         [TearDown]
         public void AfterEachMethod() {
             driver.Quit();
         }
 
-        protected HomePage LoadAppliication() {
-            return new HomePage(driver);
-        }
+     
 
 
 
