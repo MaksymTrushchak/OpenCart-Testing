@@ -1,8 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using ShoppingCartFunctionals;
 
-namespace ShoppingCartFunctionals.tests
+namespace OpencartTesting.tests
 {
     class ShoppingCartTest
     {
@@ -17,7 +16,7 @@ namespace ShoppingCartFunctionals.tests
             IWebElement cart = driver.FindElement(By.XPath("//*[@id='cart']/button"));
             IWebElement total = driver.FindElement(By.CssSelector("#cart-total"));
             IWebElement checkout = driver.FindElement(By.XPath("//*[@id='top - links']/ul/li[5]"));
-            
+
             driver.FindElement(By.LinkText("Phones & PDAs")).Click();
 
             driver.FindElement(By.XPath("//*[@id='content']/div[2]/div[1]/div/div[2]/div[2]/button[1]")).Click();

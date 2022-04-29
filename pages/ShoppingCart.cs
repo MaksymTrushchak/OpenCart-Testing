@@ -1,23 +1,22 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
-namespace ShoppingCartFunctionals
+namespace OpencartTesting.pages
 {
     class ShoppingCart
     {
-        static void Main()
+        WebDriver driver;
+        IWebElement refresh;
+
+        public ShoppingCart(WebDriver driver)
         {
-            WebDriver driver = new ChromeDriver();
-           
-            driver.Navigate().GoToUrl("http://localhost/opencart/upload/");
-            driver.Manage().Window.Maximize();
+            this.driver = driver;
+            refresh = driver.FindElement(By.XPath("//*[@id='content']/form/div/table/tbody/tr[1]/td[4]/div/span/button[1]"));
+        }
 
-            IWebElement shoppingCart = driver.FindElement(By.XPath("//*[@id='top - links']/ul/li[4]"));
-            IWebElement cart = driver.FindElement(By.XPath("//*[@id='cart']/button"));
-            IWebElement total = driver.FindElement(By.CssSelector("#cart-total"));
-            IWebElement checkout = driver.FindElement(By.XPath("//*[@id='top - links']/ul/li[5]"));
-
-            driver.Quit();
+        public void RefreshItem()
+        {
+            refresh.Click();
         }
     }
 }
