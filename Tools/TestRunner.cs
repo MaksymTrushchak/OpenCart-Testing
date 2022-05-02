@@ -27,6 +27,7 @@ namespace OpencartTesting.Tools
        
         [TearDown]
         public void AfterEachMethod() {
+            driver.Close();
             driver.Quit();
         }
 

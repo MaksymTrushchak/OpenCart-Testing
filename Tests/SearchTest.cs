@@ -1,4 +1,4 @@
-﻿
+
 using NUnit.Framework;
 
 using OpencartTesting.OpenCartTests.OpenCartTests.Pages;
@@ -25,14 +25,14 @@ namespace OpencartTesting.Tests
         protected override string OpenCartURL { get => "http://localhost/index.php?route=product/search"; }
 
 
-       
+
         [Test]
         public void SearchResultTest()
         {
-            BeforeEachMethod();
+            
             string expectedResult = "MacBook";
 
-            HeadComponent Obj = new HeadComponent();
+            HeadComponent Obj = new HeadComponent(driver);
 
 
             Obj.SetSearchBarText(expectedResult);
@@ -40,10 +40,10 @@ namespace OpencartTesting.Tests
 
 
             string actualResult;
-            actualResult = driver.FindElement(By.CssSelector("[href*='http://localhost/macbook?search=mac%20book']")).Text;
+            actualResult = driver.FindElement(By.LinkText("MacBook")).Text;
 
 
-            Assert.AreEqual(expectedResult,actualResult);
+            Assert.AreEqual(expectedResult, actualResult);
         }
 
     }
