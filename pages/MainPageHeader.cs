@@ -9,7 +9,7 @@ namespace OpencartTesting.pages
 
         private IWebElement currency;
         private IWebElement myAccount;
-        private IWebElement wishlist;
+        private IWebElement wishlist { get; }
         private IWebElement shoppingCart;
         private IWebElement checkout;
 
@@ -17,7 +17,7 @@ namespace OpencartTesting.pages
         private IWebElement searchBar;
         private IWebElement searchButton;
         private IWebElement cartButton;
-        private IWebElement total;
+        private IWebElement total { get; }
 
         private IWebElement topMenu;
 
