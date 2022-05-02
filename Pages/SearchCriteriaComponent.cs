@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace OpencartTesting.Pages
 {
     public class AsearchCriteriaComponent {
-        public IWebElement SearchCriteria { get; private set; }
+ /*       public IWebElement SearchCriteria { get; private set; }
         public IWebElement Description { get; private set; }
         public IWebElement SubCategory { get; private set; }
         public IWebElement SearchCriteriaButton { get; private set; }
@@ -44,7 +44,7 @@ namespace OpencartTesting.Pages
                     option.Click();
             }
         }
-
+ */
     }
 
 

@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
+using OpencartTesting.Pages;
 
 using OpenQA.Selenium.Chrome;
 
@@ -45,7 +45,22 @@ namespace OpencartTesting.Tests
 
             Assert.AreEqual(expectedResult, actualResult);
         }
+        [Test]
+        public void GridViewTest() {
 
+            HeadComponent ObjHeadComponet = new HeadComponent(driver);
+            ObjHeadComponet.SetSearchBarText("MacBook");
+            ObjHeadComponet.ClickSearchButton();
+
+            SearchResultPage Obj = new SearchResultPage(driver);
+            Obj.GridViewClick();
+            Assert.IsTrue(Obj.CheckTrueView(Obj.GetGridClassName()));
+
+            Obj.ListViewClick();
+            Assert.IsTrue(Obj.CheckTrueView(Obj.GetListClassName()));
+
+
+        }
     }
 
 
