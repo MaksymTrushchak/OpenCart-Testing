@@ -1,6 +1,6 @@
 bin
 obj
-OpenCart.csproj
+OpencartTesting.csproj
 OpenCart.sln
 Program.cs
 .vs
