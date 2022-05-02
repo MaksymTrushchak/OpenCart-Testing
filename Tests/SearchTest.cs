@@ -1,7 +1,7 @@
 ﻿
 using NUnit.Framework;
 using OpenCart.Pages;
-using OpenCart.Tools;
+using OpenCart.OpenCartTests.OpenCartTests;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;

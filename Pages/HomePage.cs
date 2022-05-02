@@ -4,7 +4,7 @@ using System.Text;
 
 namespace OpenCart.OpenCartTests.OpenCartTests.Pages
 {
-    class Class1
+    class HomePage
     {
     }
 }

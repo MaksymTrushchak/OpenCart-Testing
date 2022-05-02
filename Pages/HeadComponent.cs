@@ -1,14 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using OpenQA.Selenium;
+
 
 namespace OpenCart.OpenCartTests.OpenCartTests.Pages
 {
     public class HeadComponent {
-    
-    
-    
-    
+
+        public IWebElement SearchBar { get; private set; }
+
+        public IWebElement SearchButton { get; private set; }
+
+        public HeadComponent() {
+            SearchButton = SearchButton.FindElement(By.ClassName("fa fa-search"));
+            SearchBar = SearchBar.FindElement(By.Name("search"));
+        
+        
+        }
+
+
+
+        public void ClickSearchBar() => SearchBar.Click();
+
+        public void SetSearchBarText(string text) {
+            SearchBar.SendKeys(text);
+
+        }
+
+        public void ClickSearchButton() => SearchButton.Click();
     
     
     
