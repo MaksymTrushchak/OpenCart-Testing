@@ -4,7 +4,7 @@ using System.Text;
 using OpenQA.Selenium;
 
 
-namespace OpenCart.OpenCartTests.OpenCartTests.Pages
+namespace OpencartTesting.OpenCartTests.OpenCartTests.Pages
 {
     public class HeadComponent {
 

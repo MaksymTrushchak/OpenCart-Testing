@@ -1,4 +1,4 @@
-﻿using OpenCart.Tests;
+﻿using OpencartTesting.Tests;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OpenCart.Pages
+namespace OpencartTesting.Pages
 {
     public class AsearchCriteriaComponent {
         public IWebElement SearchCriteria { get; private set; }

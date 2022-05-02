@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using OpenCart.Pages;
+using OpencartTesting.Pages;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
@@ -8,14 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OpenCart.Tools
+namespace OpencartTesting.Tools
 {
     public abstract class TestRunner
     {
         protected IWebDriver driver;
 
         protected abstract string OpenCartURL { get; }
-        /*
+        
         [SetUp]
         public void BeforeEachMethod()
         {
@@ -24,7 +24,7 @@ namespace OpenCart.Tools
             driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl(OpenCartURL);
         }
-        */
+       
         [TearDown]
         public void AfterEachMethod() {
             driver.Quit();

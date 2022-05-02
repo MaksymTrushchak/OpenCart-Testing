@@ -1,7 +1,8 @@
 ﻿
 using NUnit.Framework;
-using OpenCart.Pages;
-using OpenCart.OpenCartTests.OpenCartTests;
+
+using OpencartTesting.OpenCartTests.OpenCartTests.Pages;
+using OpencartTesting.Tools;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ using System.Threading.Tasks;
 
 using OpenQA.Selenium.Chrome;
 
-namespace OpenCart.Tests
+namespace OpencartTesting.Tests
 {
 
 
@@ -30,6 +31,13 @@ namespace OpenCart.Tests
         {
             BeforeEachMethod();
             string expectedResult = "MacBook";
+
+            HeadComponent Obj = new HeadComponent();
+
+
+            Obj.SetSearchBarText(expectedResult);
+            Obj.ClickSearchButton();
+
 
             string actualResult;
             actualResult = driver.FindElement(By.CssSelector("[href*='http://localhost/macbook?search=mac%20book']")).Text;
