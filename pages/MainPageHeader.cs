@@ -6,17 +6,20 @@ namespace OpencartTesting.pages
     class MainPageHeader
     {
         protected WebDriver driver;
+
         private IWebElement currency;
         private IWebElement myAccount;
         private IWebElement wishlist;
         private IWebElement shoppingCart;
         private IWebElement checkout;
+
         private IWebElement logo;
-        private IWebElement searchField;
+        private IWebElement searchBar;
         private IWebElement searchButton;
-        private IWebElement topMenu;
         private IWebElement cartButton;
         private IWebElement total;
+
+        private IWebElement topMenu;
 
         public MainPageHeader(WebDriver driver)
         {
@@ -29,7 +32,7 @@ namespace OpencartTesting.pages
             checkout = driver.FindElement(By.XPath("//*[@id='top - links']/ul/li[5]"));
 
             logo = driver.FindElement(By.CssSelector("#logo > a"));
-            searchField = driver.FindElement(By.Name("search"));
+            searchBar = driver.FindElement(By.Name("search"));
             searchButton = driver.FindElement(By.CssSelector(".btn.btn-default.btn-lg"));
             cartButton = driver.FindElement(By.XPath("//*[@id='cart']/button"));
             total = driver.FindElement(By.CssSelector("#cart-total"));
@@ -37,11 +40,11 @@ namespace OpencartTesting.pages
             topMenu = driver.FindElement(By.CssSelector("//*[@id='menu']/div[2]/ul"));
         }
 
-        public IWebElement getTotal() { return total; }
-
-        public void ClickCheckout()
-        {
-            checkout.Click();
-        }
+        public IWebElement GetCurrency() => driver.FindElement(By.XPath("//*[@id='form-currency']/div/button/strong"));
+        public void ClickShoppingCart() { shoppingCart.Click(); }
+        public void ClickCheckout() { checkout.Click(); }
+        public void SetSearchBarText(string text) { searchBar.SendKeys(text); }
+        public void ClickSearch() { searchButton.Click(); }
+        public void ViewCart() { cartButton.Click(); }
     }
 }
