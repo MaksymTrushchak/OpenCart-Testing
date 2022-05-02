@@ -1,6 +1,6 @@
 # OpenCart Testing
 
-implemented architecture: 
+implemented architecture:  
 	MainPageHeader  
 	ShoppingCart  
 	SearchCriteriaComponent  
