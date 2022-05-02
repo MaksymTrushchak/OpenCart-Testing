@@ -37,6 +37,8 @@ namespace OpencartTesting.pages
             topMenu = driver.FindElement(By.CssSelector("//*[@id='menu']/div[2]/ul"));
         }
 
+        public IWebElement getTotal() { return total; }
+
         public void ClickCheckout()
         {
             checkout.Click();
