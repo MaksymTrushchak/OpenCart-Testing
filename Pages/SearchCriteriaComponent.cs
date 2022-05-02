@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OpenCart.Pages
 {
-    public abstract class AsearchCriteriaComponent {
+    public class AsearchCriteriaComponent {
         public IWebElement SearchCriteria { get; private set; }
         public IWebElement Description { get; private set; }
         public IWebElement SubCategory { get; private set; }

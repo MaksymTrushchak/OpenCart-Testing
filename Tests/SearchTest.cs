@@ -24,16 +24,11 @@ namespace OpenCart.Tests
         protected override string OpenCartURL { get => "http://localhost/index.php?route=product/search"; }
 
 
-        public void BeforeEachMethod()
-        {
-            driver = new ChromeDriver(@"C:\Users\maxtr\OneDrive\Робочий стіл\SoftServe\Drivers");
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
-            driver.Manage().Window.Maximize();
-            driver.Navigate().GoToUrl(OpenCartURL);
-        }
+       
         [Test]
         public void SearchResultTest()
         {
+            BeforeEachMethod();
             string expectedResult = "MacBook";
 
             string actualResult;
