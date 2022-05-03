@@ -5,7 +5,7 @@ using OpenQA.Selenium;
 using OpencartTesting.Tools;
 
 
-namespace OpencartTesting.OpenCartTests.OpenCartTests.Pages
+namespace OpencartTesting.Pages
 {
     public  class HeadComponent
     {

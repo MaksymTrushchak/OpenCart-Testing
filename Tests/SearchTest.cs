@@ -1,18 +1,15 @@
-
 using NUnit.Framework;
-
-using OpencartTesting.OpenCartTests.OpenCartTests.Pages;
-using OpencartTesting.Tools;
-using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using OpencartTesting.Pages;
-
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+
+using OpencartTesting.Tools;
+using OpencartTesting.Pages;
 
 namespace OpencartTesting.Tests
 {
