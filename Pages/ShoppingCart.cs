@@ -2,12 +2,14 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
-namespace OpencartTesting.pages
+namespace OpencartTesting.Pages
 { 
     class ShoppingCart : MainPageHeader
     {
-        WebDriver driver;
+        public WebDriver driver;
+
         private IWebElement CartIsEmpty;
+
         List<IWebElement> ProductNames;
         private IWebElement RefreshItemButton;
         private IWebElement DeleteItemButton;
