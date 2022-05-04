@@ -3,7 +3,7 @@ using OpenQA.Selenium.Chrome;
 
 namespace OpencartTesting.pages
 {
-    class MainPageHeader
+    abstract class MainPageHeader
     {
         protected WebDriver driver;
 

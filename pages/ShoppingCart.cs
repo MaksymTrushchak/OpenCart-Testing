@@ -3,8 +3,8 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
 namespace OpencartTesting.pages
-{
-    class ShoppingCart
+{ 
+    class ShoppingCart : MainPageHeader
     {
         WebDriver driver;
         private IWebElement CartIsEmpty;
@@ -21,7 +21,7 @@ namespace OpencartTesting.pages
         private IWebElement ContinueShippingButton;
         private IWebElement CheckoutButton;
 
-        public ShoppingCart(WebDriver driver)
+        public ShoppingCart(WebDriver driver) : base(driver)
         {
             this.driver = driver;
             CartIsEmpty = driver.FindElement(By.CssSelector("//*[@id='content']/p"));
