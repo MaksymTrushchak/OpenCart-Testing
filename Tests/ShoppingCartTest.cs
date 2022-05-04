@@ -1,31 +1,37 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpencartTesting.Pages;
+using OpencartTesting.Tools;
+using NUnit.Framework;
 
 namespace OpencartTesting.tests
 {
-    class ShoppingCartTest
+    [TestFixture]
+    [Category("ShoppingCart")]
+    class ShoppingCartTest : TestRunner
     {
-        static void Main()
+        protected override string OpenCartURL { get => "http://localhost/index.php?route=product/search"; }
+
+        [Test]
+        static void AddToCartTest()
         {
-            WebDriver driver = new ChromeDriver();
+            ShoppingCart MainPage = new ShoppingCart(driver);
 
-            driver.Navigate().GoToUrl("http://localhost/opencart/upload/");
-            driver.Manage().Window.Maximize();
+            MainPage.driver.Navigate().GoToUrl("http://localhost/opencart/upload/");
+            MainPage.driver.Manage().Window.Maximize();
 
-            IWebElement shoppingCart = driver.FindElement(By.XPath("//*[@id='top - links']/ul/li[4]"));
-            IWebElement cart = driver.FindElement(By.XPath("//*[@id='cart']/button"));
-            IWebElement total = driver.FindElement(By.CssSelector("#cart-total"));
-            IWebElement checkout = driver.FindElement(By.XPath("//*[@id='top - links']/ul/li[5]"));
+            MainPage.driver.FindElement(By.LinkText("Phones & PDAs")).Click();
 
-            driver.FindElement(By.LinkText("Phones & PDAs")).Click();
+            MainPage.driver.FindElement(By.XPath("//*[@id='content']/div[2]/div[1]/div/div[2]/div[2]/button[1]")).Click();
+            MainPage.driver.FindElement(By.XPath("//*[@id='content']/div[2]/div[2]/div/div[2]/div[2]/button[1]")).Click();
+            MainPage.driver.FindElement(By.XPath("//*[@id='content']/div[2]/div[3]/div/div[2]/div[2]/button[1]")).Click();
 
-            driver.FindElement(By.XPath("//*[@id='content']/div[2]/div[1]/div/div[2]/div[2]/button[1]")).Click();
-            driver.FindElement(By.XPath("//*[@id='content']/div[2]/div[2]/div/div[2]/div[2]/button[1]")).Click();
-            driver.FindElement(By.XPath("//*[@id='content']/div[2]/div[3]/div/div[2]/div[2]/button[1]")).Click();
+            MainPage.getCartButton().Click();
 
-            cart.Click();
+            string expectedResult = "3 item(s) - 457.57€";
+            string actualResult = MainPage.getTotal();
 
-            driver.Quit();
+            StringAssert.Equals(expectedResult, actualResult);
         }
     }
 }
