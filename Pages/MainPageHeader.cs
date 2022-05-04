@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
-namespace OpencartTesting.pages
+namespace OpencartTesting.Pages
 {
     abstract class MainPageHeader
     {
@@ -9,7 +9,7 @@ namespace OpencartTesting.pages
 
         private IWebElement currency;
         private IWebElement myAccount;
-        private IWebElement wishlist { get; }
+        private IWebElement wishlist;
         private IWebElement shoppingCart;
         private IWebElement checkout;
 
@@ -17,7 +17,7 @@ namespace OpencartTesting.pages
         private IWebElement searchBar;
         private IWebElement searchButton;
         private IWebElement cartButton;
-        private IWebElement total { get; }
+        private IWebElement total;
 
         private IWebElement topMenu;
 
@@ -46,5 +46,8 @@ namespace OpencartTesting.pages
         public void SetSearchBarText(string text) { searchBar.SendKeys(text); }
         public void ClickSearch() { searchButton.Click(); }
         public void ViewCart() { cartButton.Click(); }
+
+        public IWebElement getCartButton() => cartButton;
+        public IWebElement getTotal() => total;
     }
 }
