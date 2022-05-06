@@ -11,6 +11,8 @@ using OpenQA.Selenium.Chrome;
 using OpencartTesting.Tools;
 using OpencartTesting.Pages;
 
+
+
 namespace OpencartTesting.Tests
 {
 
@@ -21,6 +23,9 @@ namespace OpencartTesting.Tests
     {
         protected override string OpenCartURL { get => "http://localhost/index.php?route=product/search"; }
 
+        //Ado.net
+
+
 
 
         [Test]
@@ -30,14 +35,14 @@ namespace OpencartTesting.Tests
             string expectedResult = "MacBook";
 
             HeadComponent Obj = new HeadComponent(driver);
-
+            SearchResultPage resultpage = new SearchResultPage(driver);
 
             Obj.SetSearchBarText(expectedResult);
             Obj.ClickSearchButton();
 
 
             string actualResult;
-            actualResult = driver.FindElement(By.LinkText("MacBook")).Text;
+            actualResult = resultpage.GetProductName();
 
 
             Assert.AreEqual(expectedResult, actualResult);
@@ -58,6 +63,25 @@ namespace OpencartTesting.Tests
 
 
         }
+        [Test]
+        public void SearchInDescriptionTest()
+        {
+            string expectedResult = "MacBook";
+
+            SearchResultPage resultpage = new SearchResultPage(driver);
+            resultpage.InputCriteriaBar("intel");
+            resultpage.DescriptionCheckClick();
+            resultpage.SearchButtonClick();
+          string   actualResult = resultpage.GetProductName();
+
+
+
+            Assert.AreEqual(expectedResult, actualResult);
+
+
+
+        }
+    
     }
 
 

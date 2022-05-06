@@ -12,12 +12,14 @@ namespace OpencartTesting.Pages
         public IWebElement SearchBar { get; private set; }
 
         public IWebElement SearchButton { get; private set; }
-
+       
 
         public HeadComponent(IWebDriver driver)
         {
+            
             SearchButton = driver.FindElement(By.XPath("//button[@type='button'] [@class= 'btn btn-default btn-lg']"));
             SearchBar = driver.FindElement(By.Name("search"));
+            
         }
 
         public void ClickSearchBar() => SearchBar.Click();
