@@ -29,7 +29,7 @@ namespace OpencartTesting.tests
             MainPage.getCartButton().Click();
 
             string expectedResult = "3 item(s) - 457.57€";
-            string actualResult = MainPage.getTotal();
+            string actualResult = MainPage.getTotal().Text();
 
             StringAssert.Equals(expectedResult, actualResult);
         }
