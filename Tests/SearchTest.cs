@@ -27,26 +27,27 @@ namespace OpencartTesting.Tests
 
 
 
-
+        
         [Test]
         public void SearchResultTest()
-        {
-            
+        {       
             string expectedResult = "MacBook";
 
             HeadComponent Obj = new HeadComponent(driver);
-            SearchResultPage resultpage = new SearchResultPage(driver);
+           
 
             Obj.SetSearchBarText(expectedResult);
             Obj.ClickSearchButton();
+
+ SearchResultPage resultpage = new SearchResultPage(driver);
 
 
             string actualResult;
             actualResult = resultpage.GetProductName();
 
-
             Assert.AreEqual(expectedResult, actualResult);
         }
+
         [Test]
         public void GridViewTest() {
 
@@ -61,7 +62,6 @@ namespace OpencartTesting.Tests
             Obj.ListViewClick();
             Assert.IsTrue(Obj.CheckTrueView(Obj.GetListClassName()));
 
-
         }
         [Test]
         public void SearchInDescriptionTest()
@@ -69,16 +69,13 @@ namespace OpencartTesting.Tests
             string expectedResult = "MacBook";
 
             SearchResultPage resultpage = new SearchResultPage(driver);
+            
             resultpage.InputCriteriaBar("intel");
             resultpage.DescriptionCheckClick();
             resultpage.SearchButtonClick();
-          string   actualResult = resultpage.GetProductName();
-
-
+            string actualResult = resultpage.GetProductName();
 
             Assert.AreEqual(expectedResult, actualResult);
-
-
 
         }
     
