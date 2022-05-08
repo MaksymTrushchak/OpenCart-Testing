@@ -3,6 +3,7 @@ using OpenQA.Selenium.Chrome;
 using OpencartTesting.Pages;
 using OpencartTesting.Tools;
 using NUnit.Framework;
+using System;
 
 namespace OpencartTesting.tests
 {
@@ -10,28 +11,37 @@ namespace OpencartTesting.tests
     [Category("ShoppingCart")]
     class ShoppingCartTest : TestRunner
     {
-        protected override string OpenCartURL { get => "http://localhost/index.php?route=product/search"; }
+        protected override string OpenCartURL { get => "http://192.168.0.100/opencart/upload/"; }
 
         [Test]
-        static void AddToCartTest()
+        static void Main()
         {
-            ShoppingCart MainPage = new ShoppingCart(driver);
+            WebDriver driver = new ChromeDriver();
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
 
-            MainPage.driver.Navigate().GoToUrl("http://localhost/opencart/upload/");
-            MainPage.driver.Manage().Window.Maximize();
+            driver.Navigate().GoToUrl("http://192.168.0.100/opencart/upload/");
+            driver.Manage().Window.Maximize();
 
-            MainPage.driver.FindElement(By.LinkText("Phones & PDAs")).Click();
+            DeleteFromCartTest(driver);
+        }
 
-            MainPage.driver.FindElement(By.XPath("//*[@id='content']/div[2]/div[1]/div/div[2]/div[2]/button[1]")).Click();
-            MainPage.driver.FindElement(By.XPath("//*[@id='content']/div[2]/div[2]/div/div[2]/div[2]/button[1]")).Click();
-            MainPage.driver.FindElement(By.XPath("//*[@id='content']/div[2]/div[3]/div/div[2]/div[2]/button[1]")).Click();
+        [Test]
+        static void DeleteFromCartTest(WebDriver driver)
+        {
+            driver.FindElement(By.LinkText("Phones & PDAs")).Click();
 
-            MainPage.getCartButton().Click();
+            ProductsPage items = new ProductsPage(driver);
 
-            string expectedResult = "3 item(s) - 457.57€";
-            string actualResult = MainPage.getTotal().Text();
+            items.ClickAddToCart();
 
-            StringAssert.Equals(expectedResult, actualResult);
+            items.ClickCartButton();
+            items.ClickDeleteFromCart();
+            items.ClickCartButton();
+
+            string expectedResult = "Your shopping cart is empty!";
+            string actualResult = driver.FindElement(By.XPath("//*[@id='cart']/ul/li/p")).Text;
+
+            Assert.AreEqual(expectedResult, actualResult);
         }
     }
 }
