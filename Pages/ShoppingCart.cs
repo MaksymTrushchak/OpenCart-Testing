@@ -15,7 +15,6 @@ namespace OpencartTesting.Pages
         private IWebElement Continue;
         private IWebElement Subtotal { get; }
         private IWebElement Total { get; }
-
         private IWebElement CheckoutButton;
 
         public ShoppingCart(WebDriver driver)
@@ -25,20 +24,21 @@ namespace OpencartTesting.Pages
             try
             {
                 RefreshProductButton = driver.FindElement(By.XPath("//*[@id='content']/form/div/table/tbody/tr/td[4]/div/span/button[1]"));
-            } catch (OpenQA.Selenium.NoSuchElementException) { }
+            } catch (NoSuchElementException) { }
 
             try
             {
                 DeleteProduct1Button = driver.FindElement(By.XPath("//*[@id='content']/form/div/table/tbody/tr/td[4]/div/span/button[2]"));
             }
-            catch (OpenQA.Selenium.NoSuchElementException) { }
+            catch (NoSuchElementException) { }
             
             try
             { 
                 DeleteProduct2Button = driver.FindElement(By.XPath("//*[@id='content']/form/div/table/tbody/tr[2]/td[4]/div/span/button[2]"));
                 DeleteProduct3Button = driver.FindElement(By.XPath("//*[@id='content']/form/div/table/tbody/tr[3]/td[4]/div/span/button[2]"));
             }
-            catch (OpenQA.Selenium.NoSuchElementException) { }
+            catch (NoSuchElementException) { }
+            catch (NoSuchWindowException) { }
 
             Subtotal = driver.FindElement(By.XPath("//*[@id='content']/div[2]/div/table/tbody/tr[1]/td[2]"));
             Total = driver.FindElement(By.XPath("//*[@id='content']/div[2]/div/table/tbody/tr[4]/td[2]"));
@@ -64,6 +64,17 @@ namespace OpencartTesting.Pages
         public void ClickContinue()
         {
             Continue = driver.FindElement(By.XPath("//*[@id='content']/div/div/a"));
+        }
+        public string getCartUpdatedMessage()
+        {
+            try
+            {
+                return driver.FindElement(By.XPath("//*[@id='checkout - cart']/div[1]")).Text;
+            } 
+            catch (NoSuchElementException) 
+            {
+                return null;
+            }
         }
     }
 }

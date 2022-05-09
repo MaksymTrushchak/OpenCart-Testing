@@ -32,5 +32,9 @@ namespace OpencartTesting.Pages
         {
             Product3ToCart.Click();
         }
+        public void NavigateToPhonesAndPDAs()
+        {
+            driver.FindElement(By.LinkText("Phones & PDAs")).Click();
+        }
     }
 }
