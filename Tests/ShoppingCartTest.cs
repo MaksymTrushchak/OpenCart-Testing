@@ -42,7 +42,6 @@ namespace OpencartTesting.Tests
         [Test]
         static void AddToCartTest(WebDriver driver) 
         {
-
             driver.FindElement(By.LinkText("Phones & PDAs")).Click();
 
             ProductsPage items = new ProductsPage(driver);
