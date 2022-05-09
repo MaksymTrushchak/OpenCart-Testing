@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Chrome.ChromeDriverExtensions;
 using OpencartTesting.Pages;
 using OpencartTesting.Tools;
 using NUnit.Framework;
@@ -7,7 +8,6 @@ using System;
 
 namespace OpencartTesting.tests
 {
-    [TestFixture]
     [Category("ShoppingCart")]
     class ShoppingCartTest : TestRunner
     {
@@ -19,10 +19,13 @@ namespace OpencartTesting.tests
             WebDriver driver = new ChromeDriver();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
 
-            driver.Navigate().GoToUrl("http://192.168.0.100/opencart/upload/");
+            GoToMainPage(driver);
             driver.Manage().Window.Maximize();
 
             DeleteFromCartTest(driver);
+            //GoToMainPage(driver);
+
+            //RefreshItemsTest(driver);
         }
 
         [Test]
@@ -32,16 +35,35 @@ namespace OpencartTesting.tests
 
             ProductsPage items = new ProductsPage(driver);
 
-            items.ClickAddToCart();
+            items.getAddToCartButton().Click();
 
-            items.ClickCartButton();
-            items.ClickDeleteFromCart();
-            items.ClickCartButton();
+            driver.Navigate().Refresh();
+
+            items.getCartButton().Click();
+            items.getDeleteFromCartButton().Click();
+
+            items.getCartButton().Click();
 
             string expectedResult = "Your shopping cart is empty!";
             string actualResult = driver.FindElement(By.XPath("//*[@id='cart']/ul/li/p")).Text;
 
             Assert.AreEqual(expectedResult, actualResult);
+        }
+
+        [Test]
+        static void RefreshItemsTest(WebDriver driver)
+        {
+            driver.FindElement(By.LinkText("Phones & PDAs")).Click();
+
+            ProductsPage items = new ProductsPage(driver);
+
+            items.getAddToCartButton().Click();
+            
+        }
+
+        static void GoToMainPage(WebDriver driver)
+        {
+            driver.Navigate().GoToUrl("http://192.168.0.100/opencart/upload/");
         }
     }
 }
