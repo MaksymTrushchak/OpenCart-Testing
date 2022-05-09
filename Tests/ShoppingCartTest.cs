@@ -7,14 +7,14 @@ using NUnit.Framework;
 using System;
 using System.Threading;
 
-namespace OpencartTesting.tests
+namespace OpencartTesting.Tests
 {
+    [TestFixture]
     [Category("ShoppingCart")]
     class ShoppingCartTest : TestRunner
     {
         protected override string OpenCartURL { get => "http://192.168.0.100/opencart/upload/"; }
 
-        [Test]
         static void Main()
         {
             WebDriver driver = new ChromeDriver();
@@ -24,6 +24,11 @@ namespace OpencartTesting.tests
             driver.Manage().Window.Maximize();
 
             DeleteFromCartTest(driver);
+
+            // Only for Presentation
+            Thread.Sleep(2000);
+
+            RefreshItemsTest(driver);
         }
 
         [Test]
@@ -50,12 +55,13 @@ namespace OpencartTesting.tests
 
             driver.Navigate().GoToUrl("http://192.168.0.100/opencart/upload/index.php?route=checkout/cart");
             ShoppingCart cart = new ShoppingCart(driver);
+            // Only for Presentation
             Thread.Sleep(500);
 
             cart.RemoveProduct3();
             cart.RemoveProduct2();
             cart.RemoveProduct1();
-
+            // Only for Presentation
             Thread.Sleep(1000);
 
             actualResult = driver.FindElement(By.CssSelector("#content > p")).Text;
@@ -69,41 +75,37 @@ namespace OpencartTesting.tests
         [Test]
         static void RefreshItemsTest(WebDriver driver)
         {
-            string expectedResult = "Your shopping cart is empty!";
+            string expectedResult = "Success: You have modified your shopping cart!";
             string actualResult;
 
+            GoToMainPage(driver);
             driver.FindElement(By.LinkText("Phones & PDAs")).Click();
-
             ProductsPage items = new ProductsPage(driver);
 
-            items.AddProduct1ToCart();
             // Only for Presentation
-            Thread.Sleep(500);
+            Thread.Sleep(1000);
 
-            items.AddProduct2ToCart();
-            // Only for Presentation
-            Thread.Sleep(500);
-
-            items.AddProduct3ToCart();
-            // Only for Presentation
+            for (int i = 0; i < 2; i++)
+            {
+                items.AddProduct2ToCart();
+            }
             Thread.Sleep(500);
 
             driver.Navigate().GoToUrl("http://192.168.0.100/opencart/upload/index.php?route=checkout/cart");
             ShoppingCart cart = new ShoppingCart(driver);
-            Thread.Sleep(500);
+            cart.RefreshProduct();
 
-            cart.RemoveProduct3();
-            cart.RemoveProduct2();
-            cart.RemoveProduct1();
-
-            Thread.Sleep(1000);
-
-            actualResult = driver.FindElement(By.CssSelector("#content > p")).Text;
-            Assert.AreEqual(expectedResult, actualResult);
+            // Only for Presentation
+            Thread.Sleep(5000);
+            try
+            {
+                actualResult = driver.FindElement(By.XPath("//*[@id='checkout - cart']/div[1]")).Text;
+                StringAssert.Contains(expectedResult, actualResult);
+            }
+            catch (NoSuchElementException) { }
 
             // Only for Presentation
             Thread.Sleep(1000);
-            cart.ClickContinue();
         }
 
         static void GoToMainPage(WebDriver driver)
