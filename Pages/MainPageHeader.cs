@@ -43,8 +43,6 @@ namespace OpencartTesting.Pages
         public IWebElement GetCurrency() => driver.FindElement(By.XPath("//*[@id='form-currency']/div/button/strong"));
         public void ClickShoppingCart() { shoppingCart.Click(); }
         public void ClickCheckout() { checkout.Click(); }
-        public void SetSearchBarText(string text) { searchBar.SendKeys(text); }
-        public void ClickSearch() { searchButton.Click(); }
         public void ViewCart() { cartButton.Click(); }
 
         public IWebElement getCartButton() => cartButton;
