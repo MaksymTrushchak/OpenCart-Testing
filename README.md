@@ -4,7 +4,13 @@
 implemented architecture:  
 	MainPageHeader  
 	ShoppingCart  
-	SearchCriteriaComponent  
+	SearchResultPage  
+	WishListPage  
+	LoginPage  
+	ProductsPage  
+	UserPage  
   
 tests:  
-	SearchTest
+	SearchTest  
+	ShoppingCartTest  
+	WishListTest  
