@@ -1,0 +1,33 @@
+﻿using System;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using NUnit.Framework;
+
+namespace OpencartTesting.Tools
+{
+    public abstract class TestRunner
+    {
+        public IWebDriver driver;
+        protected abstract string OpenCartURL { get; }
+
+        [SetUp]
+        public void BeforeEachMethod()
+        {
+            driver = new ChromeDriver(@"C:\Program Files\Google\Chrome\");
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
+            driver.Manage().Window.Maximize();
+            driver.Navigate().GoToUrl(OpenCartURL);
+        }
+
+        [TearDown]
+        public void AfterEachMethod()
+        {
+            driver.Close();
+            driver.Quit();
+        }
+    }
+}
+
+
+
+
