@@ -23,19 +23,25 @@ namespace OpencartTesting.Tests
             GoToMainPage(driver);
             driver.Manage().Window.Maximize();
 
-            DeleteFromCartTest(driver);
+            AddToCartTest(driver);
+            // Only for Presentation
+            Thread.Sleep(2000);
 
+            DeleteFromCartTest(driver);
             // Only for Presentation
             Thread.Sleep(2000);
 
             RefreshItemsTest(driver);
+            // Only for Presentation
+            Thread.Sleep(2000);
+
+            driver.Close();
+            driver.Quit();
         }
 
         [Test]
-        static void DeleteFromCartTest(WebDriver driver)
+        static void AddToCartTest(WebDriver driver) 
         {
-            string expectedResult = "Your shopping cart is empty!";
-            string actualResult;
 
             driver.FindElement(By.LinkText("Phones & PDAs")).Click();
 
@@ -48,10 +54,17 @@ namespace OpencartTesting.Tests
             items.AddProduct2ToCart();
             // Only for Presentation
             Thread.Sleep(500);
-            
+
             items.AddProduct3ToCart();
             // Only for Presentation
             Thread.Sleep(500);
+        }
+
+        [Test]
+        static void DeleteFromCartTest(WebDriver driver)
+        {
+            string expectedResult = "Your shopping cart is empty!";
+            string actualResult = "";
 
             driver.Navigate().GoToUrl("http://192.168.0.100/opencart/upload/index.php?route=checkout/cart");
             ShoppingCart cart = new ShoppingCart(driver);
@@ -88,24 +101,19 @@ namespace OpencartTesting.Tests
             for (int i = 0; i < 2; i++)
             {
                 items.AddProduct2ToCart();
+                Thread.Sleep(500);
             }
-            Thread.Sleep(500);
 
             driver.Navigate().GoToUrl("http://192.168.0.100/opencart/upload/index.php?route=checkout/cart");
             ShoppingCart cart = new ShoppingCart(driver);
             cart.RefreshProduct();
 
-            // Only for Presentation
-            Thread.Sleep(5000);
             try
             {
-                actualResult = driver.FindElement(By.XPath("//*[@id='checkout - cart']/div[1]")).Text;
+                actualResult = cart.getCartUpdatedMessage();
                 StringAssert.Contains(expectedResult, actualResult);
             }
-            catch (NoSuchElementException) { }
-
-            // Only for Presentation
-            Thread.Sleep(1000);
+            catch (ArgumentException) { }
         }
 
         static void GoToMainPage(WebDriver driver)
