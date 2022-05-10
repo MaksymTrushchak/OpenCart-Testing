@@ -42,7 +42,8 @@ namespace OpencartTesting.Tests
         [Test]
         static void AddToCartTest(WebDriver driver) 
         {
-            driver.FindElement(By.LinkText("Phones & PDAs")).Click();
+            //driver.FindElement(By.LinkText("Phones & PDAs")).Click();
+            GoToPhonesAndPDAs(driver);
 
             ProductsPage items = new ProductsPage(driver);
 
@@ -57,6 +58,10 @@ namespace OpencartTesting.Tests
             items.AddProduct3ToCart();
             // Only for Presentation
             Thread.Sleep(500);
+
+            GoToCart(driver);
+
+            Assert.IsNotNull(driver.FindElement(By.XPath("//*[@id='content']/form/div/table/tbody/tr[3]/td[2]")));
         }
 
         [Test]
@@ -65,7 +70,7 @@ namespace OpencartTesting.Tests
             string expectedResult = "Your shopping cart is empty!";
             string actualResult = "";
 
-            driver.Navigate().GoToUrl("http://192.168.0.100/opencart/upload/index.php?route=checkout/cart");
+            GoToCart(driver);
             ShoppingCart cart = new ShoppingCart(driver);
             // Only for Presentation
             Thread.Sleep(500);
@@ -91,7 +96,7 @@ namespace OpencartTesting.Tests
             string actualResult;
 
             GoToMainPage(driver);
-            driver.FindElement(By.LinkText("Phones & PDAs")).Click();
+            GoToPhonesAndPDAs(driver);
             ProductsPage items = new ProductsPage(driver);
 
             // Only for Presentation
@@ -103,7 +108,7 @@ namespace OpencartTesting.Tests
                 Thread.Sleep(500);
             }
 
-            driver.Navigate().GoToUrl("http://192.168.0.100/opencart/upload/index.php?route=checkout/cart");
+            GoToCart(driver);
             ShoppingCart cart = new ShoppingCart(driver);
             cart.RefreshProduct();
 
@@ -118,6 +123,14 @@ namespace OpencartTesting.Tests
         static void GoToMainPage(WebDriver driver)
         {
             driver.Navigate().GoToUrl("http://192.168.0.100/opencart/upload/");
+        }
+        static void GoToCart(WebDriver driver)
+        {
+            driver.Navigate().GoToUrl("http://192.168.0.100/opencart/upload/index.php?route=checkout/cart");
+        }
+        static void GoToPhonesAndPDAs(WebDriver driver)
+        {
+            driver.Navigate().GoToUrl("http://192.168.0.100/opencart/upload/index.php?route=product/category&path=24");
         }
     }
 }
