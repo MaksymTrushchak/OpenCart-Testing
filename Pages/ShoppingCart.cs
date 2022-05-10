@@ -1,74 +1,80 @@
-﻿using System.Collections.Generic;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
 namespace OpencartTesting.Pages
 { 
-    class ShoppingCart : MainPageHeader
+    class ShoppingCart
     {
         public WebDriver driver;
 
-        private IWebElement CartIsEmpty;
+        private IWebElement RefreshProductButton;
+        private IWebElement DeleteProduct1Button;
+        private IWebElement DeleteProduct2Button;
+        private IWebElement DeleteProduct3Button;
 
-        List<IWebElement> ProductNames;
-        private IWebElement RefreshItemButton;
-        private IWebElement DeleteItemButton;
-
-        private IWebElement CouponCodeExpandCollapse;
-        private IWebElement GiftCertExpandCollapse;
-
+        private IWebElement Continue;
         private IWebElement Subtotal { get; }
         private IWebElement Total { get; }
-
-        private IWebElement ContinueShippingButton;
         private IWebElement CheckoutButton;
 
-        public ShoppingCart(WebDriver driver) : base(driver)
+        public ShoppingCart(WebDriver driver)
         {
             this.driver = driver;
-            CartIsEmpty = driver.FindElement(By.CssSelector("//*[@id='content']/p"));
-            RefreshItemButton = driver.FindElement(By.XPath("//*[@id='content']/form/div/table/tbody/tr[1]/td[4]/div/span/button[1]"));
-            DeleteItemButton = driver.FindElement(By.XPath("//*[@id='content']/form/div/table/tbody/tr[1]/td[4]/div/span/button[2]"));
 
-            CouponCodeExpandCollapse = driver.FindElement(By.XPath("//*[@id='accordion']/div[1]/div[1]/h4/a"));
-            GiftCertExpandCollapse = driver.FindElement(By.XPath("//*[@id='accordion']/div[3]/div[1]/h4/a"));
+            try
+            {
+                RefreshProductButton = driver.FindElement(By.XPath("//*[@id='content']/form/div/table/tbody/tr/td[4]/div/span/button[1]"));
+            } catch (NoSuchElementException) { }
+
+            try
+            {
+                DeleteProduct1Button = driver.FindElement(By.XPath("//*[@id='content']/form/div/table/tbody/tr/td[4]/div/span/button[2]"));
+            }
+            catch (NoSuchElementException) { }
+            
+            try
+            { 
+                DeleteProduct2Button = driver.FindElement(By.XPath("//*[@id='content']/form/div/table/tbody/tr[2]/td[4]/div/span/button[2]"));
+                DeleteProduct3Button = driver.FindElement(By.XPath("//*[@id='content']/form/div/table/tbody/tr[3]/td[4]/div/span/button[2]"));
+            }
+            catch (NoSuchElementException) { }
+            catch (NoSuchWindowException) { }
 
             Subtotal = driver.FindElement(By.XPath("//*[@id='content']/div[2]/div/table/tbody/tr[1]/td[2]"));
             Total = driver.FindElement(By.XPath("//*[@id='content']/div[2]/div/table/tbody/tr[4]/td[2]"));
-
-            ContinueShippingButton = driver.FindElement(By.LinkText("Continue Shopping"));
             CheckoutButton = driver.FindElement(By.LinkText("Checkout"));
         }
 
-        public void RefreshItems(int items)
+        public void RefreshProduct()
         {
-            for (int i = 0; i < items; i++)
+            RefreshProductButton.Click();
+        }
+        public void RemoveProduct1()
+        {
+            driver.FindElement(By.XPath("//*[@id='content']/form/div/table/tbody/tr/td[4]/div/span/button[2]")).Click();
+        }
+        public void RemoveProduct2()
+        {
+            DeleteProduct2Button.Click();
+        }
+        public void RemoveProduct3()
+        {
+            DeleteProduct3Button.Click();
+        }
+        public void ClickContinue()
+        {
+            Continue = driver.FindElement(By.XPath("//*[@id='content']/div/div/a"));
+        }
+        public string getCartUpdatedMessage()
+        {
+            try
             {
-                RefreshItemButton.Click();
-                RefreshItemButton = driver.FindElement(By.XPath("//*[@id='content']/form/div/table/tbody/tr[1]/td[4]/div/span/button[1]" +
-                    "/following-sibling::button"));
-
-                if (RefreshItemButton == null) break;
-            }
-        }
-        public void DeleteItems(int items)
-        {
-            for (int i = 0; i < items; i++)
+                return driver.FindElement(By.XPath("//*[@id='checkout - cart']/div[1]")).Text;
+            } 
+            catch (NoSuchElementException) 
             {
-                DeleteItemButton.Click();
-                DeleteItemButton = driver.FindElement(By.XPath("//*[@id='content']/form/div/table/tbody/tr[1]/td[4]/div/span/button[2]" +
-                    "/following-sibling::button"));
-
-                if (DeleteItemButton == null) break;
+                return null;
             }
-        }
-        public void ExColCouponCode()
-        {
-            CouponCodeExpandCollapse.Click();
-        }
-        public void ExColGiftCert()
-        {
-            GiftCertExpandCollapse.Click();
         }
     }
 }
