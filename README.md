@@ -8,9 +8,10 @@ implemented architecture:
 	WishListPage  
 	LoginPage  
 	ProductsPage  
-	UserPage  
   
 tests:  
 	SearchTest  
 	ShoppingCartTest  
+	LoginTest  
 	WishListTest  
+	RemoveWishListTest  
