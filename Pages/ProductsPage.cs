@@ -18,7 +18,6 @@ namespace OpencartTesting.Pages
             Product1ToCart = driver.FindElement(By.XPath("//*[@id='content']/div[2]/div[1]/div/div[2]/div[2]/button[1]"));
             Product2ToCart = driver.FindElement(By.XPath("//*[@id='content']/div[2]/div[2]/div/div[2]/div[2]/button[1]"));
             Product3ToCart = driver.FindElement(By.XPath("//*[@id='content']/div[2]/div[3]/div/div[2]/div[2]/button[1]"));
-
         }
         public void AddProduct1ToCart()
         {
