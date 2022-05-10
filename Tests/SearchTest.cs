@@ -15,31 +15,24 @@ using OpencartTesting.Pages;
 
 namespace OpencartTesting.Tests
 {
-
-
     [TestFixture]
     [Category("SearchPage")]
     public class SearchPageTest : TestRunner
     {
         protected override string OpenCartURL { get => "http://localhost/index.php?route=product/search"; }
 
-        //Ado.net
-
-
-
-        
         [Test]
         public void SearchResultTest()
-        {       
+        {
             string expectedResult = "MacBook";
 
             HeadComponent Obj = new HeadComponent(driver);
-           
+
 
             Obj.SetSearchBarText(expectedResult);
             Obj.ClickSearchButton();
 
- SearchResultPage resultpage = new SearchResultPage(driver);
+            SearchResultPage resultpage = new SearchResultPage(driver);
 
 
             string actualResult;
@@ -49,8 +42,8 @@ namespace OpencartTesting.Tests
         }
 
         [Test]
-        public void GridViewTest() {
-
+        public void GridViewTest()
+        {
             HeadComponent ObjHeadComponet = new HeadComponent(driver);
             ObjHeadComponet.SetSearchBarText("MacBook");
             ObjHeadComponet.ClickSearchButton();
@@ -61,7 +54,6 @@ namespace OpencartTesting.Tests
 
             Obj.ListViewClick();
             Assert.IsTrue(Obj.CheckTrueView(Obj.GetListClassName()));
-
         }
         [Test]
         public void SearchInDescriptionTest()
@@ -69,16 +61,15 @@ namespace OpencartTesting.Tests
             string expectedResult = "MacBook";
 
             SearchResultPage resultpage = new SearchResultPage(driver);
-            
+
             resultpage.InputCriteriaBar("intel");
             resultpage.DescriptionCheckClick();
             resultpage.SearchButtonClick();
             string actualResult = resultpage.GetProductName();
 
             Assert.AreEqual(expectedResult, actualResult);
-
         }
-    
+
     }
 
 
