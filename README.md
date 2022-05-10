@@ -13,4 +13,6 @@ implemented architecture:
 tests:  
 	SearchTest  
 	ShoppingCartTest  
+	LoginTest  
 	WishListTest  
+	RemoveWishListTest  
