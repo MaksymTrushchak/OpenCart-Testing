@@ -13,38 +13,12 @@ namespace OpencartTesting.Tests
     [Category("ShoppingCart")]
     class ShoppingCartTest : TestRunner
     {
-        protected override string OpenCartURL { get => "http://192.168.0.100/opencart/upload/"; }
-
-        static void Main()
-        {
-            WebDriver driver = new ChromeDriver();
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
-
-            GoToMainPage(driver);
-            driver.Manage().Window.Maximize();
-
-            AddToCartTest(driver);
-            // Only for Presentation
-            Thread.Sleep(2000);
-
-            DeleteFromCartTest(driver);
-            // Only for Presentation
-            Thread.Sleep(2000);
-
-            RefreshItemsTest(driver);
-            // Only for Presentation
-            Thread.Sleep(2000);
-
-            driver.Close();
-            driver.Quit();
-        }
+        protected override string OpenCartURL { get => "http://192.168.0.118/opencart/upload/"; }
 
         [Test]
-        static void AddToCartTest(WebDriver driver) 
+        public void AddToCartTest()
         {
-            //driver.FindElement(By.LinkText("Phones & PDAs")).Click();
             GoToPhonesAndPDAs(driver);
-
             ProductsPage items = new ProductsPage(driver);
 
             items.AddProduct1ToCart();
@@ -63,12 +37,27 @@ namespace OpencartTesting.Tests
 
             Assert.IsNotNull(driver.FindElement(By.XPath("//*[@id='content']/form/div/table/tbody/tr[3]/td[2]")));
         }
-
+        
         [Test]
-        static void DeleteFromCartTest(WebDriver driver)
+        public void DeleteFromCartTest()
         {
             string expectedResult = "Your shopping cart is empty!";
             string actualResult = "";
+
+            GoToPhonesAndPDAs(driver);
+            ProductsPage items = new ProductsPage(driver);
+
+            items.AddProduct1ToCart();
+            // Only for Presentation
+            Thread.Sleep(500);
+
+            items.AddProduct2ToCart();
+            // Only for Presentation
+            Thread.Sleep(500);
+
+            items.AddProduct3ToCart();
+            // Only for Presentation
+            Thread.Sleep(500);
 
             GoToCart(driver);
             ShoppingCart cart = new ShoppingCart(driver);
@@ -85,17 +74,15 @@ namespace OpencartTesting.Tests
             Assert.AreEqual(expectedResult, actualResult);
 
             // Only for Presentation
-            Thread.Sleep(1000);
             cart.ClickContinue();
         }
-
+        
         [Test]
-        static void RefreshItemsTest(WebDriver driver)
+        public void RefreshItemsTest()
         {
             string expectedResult = "Success: You have modified your shopping cart!";
             string actualResult;
 
-            GoToMainPage(driver);
             GoToPhonesAndPDAs(driver);
             ProductsPage items = new ProductsPage(driver);
 
@@ -119,18 +106,18 @@ namespace OpencartTesting.Tests
             }
             catch (ArgumentException) { }
         }
-
+        
         static void GoToMainPage(WebDriver driver)
         {
-            driver.Navigate().GoToUrl("http://192.168.0.100/opencart/upload/");
+            driver.Navigate().GoToUrl("http://192.168.0.118/opencart/upload/");
         }
         static void GoToCart(WebDriver driver)
         {
-            driver.Navigate().GoToUrl("http://192.168.0.100/opencart/upload/index.php?route=checkout/cart");
+            driver.Navigate().GoToUrl("http://192.168.0.118/opencart/upload/index.php?route=checkout/cart");
         }
         static void GoToPhonesAndPDAs(WebDriver driver)
         {
-            driver.Navigate().GoToUrl("http://192.168.0.100/opencart/upload/index.php?route=product/category&path=24");
+            driver.Navigate().GoToUrl("http://192.168.0.118/opencart/upload/index.php?route=product/category&path=24");
         }
     }
 }
