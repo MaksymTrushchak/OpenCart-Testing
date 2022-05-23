@@ -1,0 +1,44 @@
+{
+  "uuid": "04fb36b7-b687-4f88-b355-f2b6e2c6c08a-tc-0-1000",
+  "name": "OpencartTesting.Tests.SearchPageTest.GridViewTest",
+  "children": [
+    "778d8d69-7a67-49f6-92dd-330a23bdbf9f-tr-0-1002"
+  ],
+  "befores": [
+    {
+      "name": "BeforeEachMethod",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1653300154555,
+      "stop": 1653300154555
+    }
+  ],
+  "afters": [
+    {
+      "name": "AfterEachMethod",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1653300154555,
+      "stop": 1653300154555
+    }
+  ],
+  "links": [],
+  "start": 1653300153036,
+  "stop": 1653300154576
+}

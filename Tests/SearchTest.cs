@@ -11,22 +11,28 @@ using OpenQA.Selenium.Chrome;
 using OpencartTesting.Tools;
 using OpencartTesting.Pages;
 
-
+using Allure.Commons;
+using NUnit.Allure.Attributes;
+using NUnit.Allure.Core;
 
 namespace OpencartTesting.Tests
 {
     [TestFixture]
+    [AllureNUnit]
     [Category("SearchPage")]
     public class SearchPageTest : TestRunner
     {
         protected override string OpenCartURL { get => "http://localhost/index.php?route=product/search"; }
 
+
         [Test]
+        [AllureTag("SearchPage")]
+        [AllureSeverity(SeverityLevel.normal)]
+        [AllureOwner("MaxTr")]
         public void SearchResultTest()
         {
             string expectedResult = "MacBook";
-
-            HeadComponent Obj = new HeadComponent(driver);
+            SearchResultPage Obj = new SearchResultPage(driver);
 
 
             Obj.SetSearchBarText(expectedResult);
@@ -42,24 +48,29 @@ namespace OpencartTesting.Tests
         }
 
         [Test]
+        [AllureTag("SearchPage")]
+        [AllureSeverity(SeverityLevel.normal)]
+        [AllureOwner("MaxTr")]
         public void GridViewTest()
         {
-            HeadComponent ObjHeadComponet = new HeadComponent(driver);
+            SearchResultPage ObjHeadComponet = new SearchResultPage(driver);
             ObjHeadComponet.SetSearchBarText("MacBook");
             ObjHeadComponet.ClickSearchButton();
-
             SearchResultPage Obj = new SearchResultPage(driver);
+            
             Obj.GridViewClick();
             Assert.IsTrue(Obj.CheckTrueView(Obj.GetGridClassName()));
-
+           
             Obj.ListViewClick();
             Assert.IsTrue(Obj.CheckTrueView(Obj.GetListClassName()));
         }
         [Test]
+        [AllureTag("SearchPage")]
+        [AllureSeverity(SeverityLevel.normal)]
+        [AllureOwner("MaxTr")]
         public void SearchInDescriptionTest()
         {
             string expectedResult = "MacBook";
-
             SearchResultPage resultpage = new SearchResultPage(driver);
 
             resultpage.InputCriteriaBar("intel");

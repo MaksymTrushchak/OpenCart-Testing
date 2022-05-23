@@ -1,0 +1,46 @@
+{
+  "uuid": "839048f4-05b0-469f-b6d3-dbeff1e5c773-tc-0-1000",
+  "name": "OpencartTesting.Tests.SearchPageTest.SearchInDescriptionTest",
+  "children": [
+    "8ae72bf6-3e8c-40a7-b5af-564274b3d91b-tr-0-1003"
+  ],
+  "befores": [
+    {
+      "name": "BeforeEachMethod",
+      "status": "failed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "OpenQA.Selenium.WebDriverException : unknown error: net::ERR_CONNECTION_REFUSED\n  (Session info: chrome=101.0.4951.67)",
+        "trace": "   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.set_Url(String value)\r\n   at OpenQA.Selenium.Remote.RemoteNavigator.GoToUrl(String url)\r\n   at OpencartTesting.Tools.TestRunner.BeforeEachMethod() in C:\\Users\\maxtr\\OneDrive\\Робочий стіл\\SoftServe\\Demo_3\\OpencartTesting\\OpencartTesting\\Tools\\TestRunner.cs:line 26"
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1653346565229,
+      "stop": 1653346565229
+    }
+  ],
+  "afters": [
+    {
+      "name": "AfterEachMethod",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1653346565229,
+      "stop": 1653346565229
+    }
+  ],
+  "links": [],
+  "start": 1653346559823,
+  "stop": 1653346565231
+}

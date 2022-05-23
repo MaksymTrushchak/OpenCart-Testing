@@ -1,0 +1,48 @@
+{
+  "uuid": "86c6931d-c04e-4d9b-8f14-5f5253be02a7-tc-0-1000",
+  "name": "OpencartTesting.Tests.SearchPageTest.GridViewTest",
+  "children": [
+    "6448fdbd-6c7b-4dcf-bdf5-8a6712de9b46-tr-0-1002"
+  ],
+  "befores": [
+    {
+      "name": "BeforeEachMethod",
+      "status": "failed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "OpenQA.Selenium.WebDriverException : unknown error: cannot determine loading status\nfrom disconnected: received Inspector.detached event\n  (Session info: chrome=101.0.4951.67)\r\nTearDown : OpenQA.Selenium.WebDriverException : chrome not reachable\n  (Session info: chrome=101.0.4951.67)",
+        "trace": "   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.set_Url(String value)\r\n   at OpenQA.Selenium.Remote.RemoteNavigator.GoToUrl(String url)\r\n   at OpencartTesting.Tools.TestRunner.BeforeEachMethod() in C:\\Users\\maxtr\\OneDrive\\Робочий стіл\\SoftServe\\Demo_3\\OpencartTesting\\OpencartTesting\\Tools\\TestRunner.cs:line 26\r\n--TearDown\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.Close()\r\n   at OpencartTesting.Tools.TestRunner.AfterEachMethod() in C:\\Users\\maxtr\\OneDrive\\Робочий стіл\\SoftServe\\Demo_3\\OpencartTesting\\OpencartTesting\\Tools\\TestRunner.cs:line 31"
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1653299425206,
+      "stop": 1653299425206
+    }
+  ],
+  "afters": [
+    {
+      "name": "AfterEachMethod",
+      "status": "failed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "OpenQA.Selenium.WebDriverException : unknown error: cannot determine loading status\nfrom disconnected: received Inspector.detached event\n  (Session info: chrome=101.0.4951.67)\r\nTearDown : OpenQA.Selenium.WebDriverException : chrome not reachable\n  (Session info: chrome=101.0.4951.67)",
+        "trace": "   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.set_Url(String value)\r\n   at OpenQA.Selenium.Remote.RemoteNavigator.GoToUrl(String url)\r\n   at OpencartTesting.Tools.TestRunner.BeforeEachMethod() in C:\\Users\\maxtr\\OneDrive\\Робочий стіл\\SoftServe\\Demo_3\\OpencartTesting\\OpencartTesting\\Tools\\TestRunner.cs:line 26\r\n--TearDown\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.Close()\r\n   at OpencartTesting.Tools.TestRunner.AfterEachMethod() in C:\\Users\\maxtr\\OneDrive\\Робочий стіл\\SoftServe\\Demo_3\\OpencartTesting\\OpencartTesting\\Tools\\TestRunner.cs:line 31"
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1653299425206,
+      "stop": 1653299425206
+    }
+  ],
+  "links": [],
+  "start": 1653299418658,
+  "stop": 1653299425227
+}

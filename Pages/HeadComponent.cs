@@ -22,13 +22,7 @@ namespace OpencartTesting.Pages
             
         }
 
-        public void ClickSearchBar() => SearchBar.Click();
-
-        public void SetSearchBarText(string text)
-        {
-            SearchBar.SendKeys(text);
-        }
-        public void ClickSearchButton() => SearchButton.Click();
+      
     }
 }
     

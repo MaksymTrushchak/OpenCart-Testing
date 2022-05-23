@@ -54,6 +54,22 @@ namespace OpencartTesting.Pages
                 return driver.FindElement(By.Id("button-search"));
             }
         }
+        public IWebElement SearchButtonMain
+        {
+            get
+            {
+                return driver.FindElement(By.XPath("//button[@type='button'] [@class= 'btn btn-default btn-lg']"));
+            }
+        }
+        public IWebElement SearchBarMain
+        {
+            get {
+                
+                return driver.FindElement(By.Name("search"));
+
+            }
+        }
+
 
         public SearchResultPage(IWebDriver driver)
         {
@@ -61,6 +77,8 @@ namespace OpencartTesting.Pages
             this.driver = driver;
         }
 
+       
+       
         public void ListViewClick() => ListView.Click();
         public void GridViewClick() => GridView.Click();
 
@@ -103,5 +121,12 @@ namespace OpencartTesting.Pages
                 return false;
             }
         }
+        public void ClickSearchBar() => SearchBarMain.Click();
+
+        public void SetSearchBarText(string text)
+        {
+            SearchBarMain.SendKeys(text);
+        }
+        public void ClickSearchButton() => SearchButtonMain.Click();
     }
 }

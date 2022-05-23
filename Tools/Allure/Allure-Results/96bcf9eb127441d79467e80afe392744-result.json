@@ -1,0 +1,80 @@
+{
+  "uuid": "1ba7db6d-0e86-40eb-b858-ebc587f18339-tr-0-1002",
+  "historyId": "OpencartTesting.Tests.SearchPageTest.GridViewTest",
+  "fullName": "OpencartTesting.Tests.SearchPageTest.GridViewTest",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "DESKTOP-KHH8JKR"
+    },
+    {
+      "name": "package",
+      "value": "OpencartTesting.Tests"
+    },
+    {
+      "name": "testMethod",
+      "value": "GridViewTest"
+    },
+    {
+      "name": "testClass",
+      "value": "SearchPageTest"
+    },
+    {
+      "name": "tag",
+      "value": "SearchPage"
+    },
+    {
+      "name": "tag",
+      "value": "SearchPage"
+    },
+    {
+      "name": "severity",
+      "value": "normal"
+    },
+    {
+      "name": "owner",
+      "value": "MaxTr"
+    }
+  ],
+  "links": [],
+  "name": "GridViewTest",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "GridViewTest"
+  },
+  "stage": "finished",
+  "steps": [
+    {
+      "name": "GridViewTest",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "8bb2b8d514df4263bd31f30938805fef-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1653299536810,
+      "stop": 1653299538275
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1653299536810,
+  "stop": 1653299538278
+}
