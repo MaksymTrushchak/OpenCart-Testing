@@ -54,8 +54,16 @@ namespace AHeaderComponentsOpencart
                 return driver.FindElement(By.XPath("//button[@id='list-view']"));
             }
         }
+        public IWebElement AddProduct
+        {
+            get 
+            {
+                return driver.FindElement(By.XPath("//*[@id='content']/div[2]/div[1]/div/div[3]/button[2]"));
+            }
+        }
         public void MyAccountButtonClick() => MyAccountButton.Click();
         public void LoginPageButtonClick() => LoginPageButton.Click();
+        public void addProductClick() => AddProduct.Click();
 
         public void ListViewClick() => ListView.Click();
         public void LogoClick() => Logo.Click();
