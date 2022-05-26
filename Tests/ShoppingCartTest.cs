@@ -4,17 +4,26 @@ using OpenQA.Selenium.Chrome.ChromeDriverExtensions;
 using OpencartTesting.Pages;
 using OpencartTesting.Tools;
 using NUnit.Framework;
+using NUnit.Allure.Attributes;
+using NUnit.Allure.Core;
+using Allure.Commons;
+
 using System;
 using System.Threading;
+
 
 namespace OpencartTesting.Tests
 {
     [TestFixture]
+    [AllureNUnit]
     [Category("ShoppingCart")]
     class ShoppingCartTest : TestRunner
     {
-        protected override string OpenCartURL { get => "http://192.168.0.118/opencart/upload/"; }
+        protected override string OpenCartURL { get => "http://3.68.27.146/"; }
 
+        [AllureTag("AddToCart")]
+        [AllureSeverity(SeverityLevel.normal)]
+        [AllureOwner("Artur")]
         [Test]
         public void AddToCartTest()
         {
@@ -37,7 +46,10 @@ namespace OpencartTesting.Tests
 
             Assert.IsNotNull(driver.FindElement(By.XPath("//*[@id='content']/form/div/table/tbody/tr[3]/td[2]")));
         }
-        
+
+        [AllureTag("DeleteFromCart")]
+        [AllureSeverity(SeverityLevel.normal)]
+        [AllureOwner("Artur")]
         [Test]
         public void DeleteFromCartTest()
         {
@@ -76,7 +88,10 @@ namespace OpencartTesting.Tests
             // Only for Presentation
             cart.ClickContinue();
         }
-        
+
+        [AllureTag("RefreshCart")]
+        [AllureSeverity(SeverityLevel.normal)]
+        [AllureOwner("Artur")]
         [Test]
         public void RefreshItemsTest()
         {
@@ -109,15 +124,15 @@ namespace OpencartTesting.Tests
         
         static void GoToMainPage(WebDriver driver)
         {
-            driver.Navigate().GoToUrl("http://192.168.0.118/opencart/upload/");
+            driver.Navigate().GoToUrl("http://3.68.27.146/");
         }
         static void GoToCart(WebDriver driver)
         {
-            driver.Navigate().GoToUrl("http://192.168.0.118/opencart/upload/index.php?route=checkout/cart");
+            driver.Navigate().GoToUrl("http://3.68.27.146/index.php?route=checkout/cart");
         }
         static void GoToPhonesAndPDAs(WebDriver driver)
         {
-            driver.Navigate().GoToUrl("http://192.168.0.118/opencart/upload/index.php?route=product/category&path=24");
+            driver.Navigate().GoToUrl("http://3.68.27.146/smartphone");
         }
     }
 }
