@@ -2,16 +2,14 @@
 <img src="oct_arch.png" alt="Architecture Diagram">
 
 implemented architecture:  
-	MainPageHeader  
-	ShoppingCart  
-	SearchResultPage  
-	WishListPage  
 	LoginPage  
+	MainPageHeader  
 	ProductsPage  
+	SearchResultPage  
+	ShoppingCart  
+	WishListPage  
   
 tests:  
 	SearchTest  
 	ShoppingCartTest  
-	LoginTest  
-	WishListTest  
-	RemoveWishListTest  
+	WishlistTest  
