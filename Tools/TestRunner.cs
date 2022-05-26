@@ -7,7 +7,7 @@ namespace OpencartTesting.Tools
 {
     public abstract class TestRunner
     {
-        protected IWebDriver driver;
+        protected WebDriver driver;
         protected abstract string OpenCartURL { get; }
         
         [SetUp]
@@ -20,7 +20,8 @@ namespace OpencartTesting.Tools
         }
        
         [TearDown]
-        public void AfterEachMethod() {
+        public void AfterEachMethod() 
+        {
             driver.Close();
             driver.Quit();
         }

@@ -4,20 +4,34 @@ using System.Collections.Generic;
 
 namespace OpencartTesting.Pages
 {
-    class ProductsPage
+    class ProductsPage : MainPageHeader
     {
         public WebDriver driver;
-        private IWebElement Product1ToCart;
-        private IWebElement Product2ToCart;
-        private IWebElement Product3ToCart;
+        public IWebElement Product1ToCart
+        {
+            get
+            {
+                return driver.FindElement(By.XPath("//*[@id='content']/div[2]/div[1]/div/div[2]/div[2]/button[1]"));
+            }
+        }
+        public IWebElement Product2ToCart
+        {
+            get
+            {
+                return driver.FindElement(By.XPath("//*[@id='content']/div[2]/div[2]/div/div[2]/div[2]/button[1]"));
+            }
+        }
+        public IWebElement Product3ToCart
+        {
+            get
+            {
+                return driver.FindElement(By.XPath("//*[@id='content']/div[2]/div[3]/div/div[2]/div[2]/button[1]"));
+            }
+        }
 
-        public ProductsPage(WebDriver driver)
+        public ProductsPage(WebDriver driver) : base(driver)
         {
             this.driver = driver;
-
-            Product1ToCart = driver.FindElement(By.XPath("//*[@id='content']/div[2]/div[1]/div/div[2]/div[2]/button[1]"));
-            Product2ToCart = driver.FindElement(By.XPath("//*[@id='content']/div[2]/div[2]/div/div[2]/div[2]/button[1]"));
-            Product3ToCart = driver.FindElement(By.XPath("//*[@id='content']/div[2]/div[3]/div/div[2]/div[2]/button[1]"));
         }
         public void AddProduct1ToCart()
         {

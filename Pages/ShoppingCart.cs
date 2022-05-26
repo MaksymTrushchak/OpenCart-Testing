@@ -2,47 +2,57 @@
 using OpenQA.Selenium.Chrome;
 
 namespace OpencartTesting.Pages
-{ 
-    class ShoppingCart
+{
+    class ShoppingCart : MainPageHeader
     {
         public WebDriver driver;
 
-        private IWebElement RefreshProductButton;
-        private IWebElement DeleteProduct1Button;
-        private IWebElement DeleteProduct2Button;
-        private IWebElement DeleteProduct3Button;
+        private IWebElement RefreshProductButton
+        {
+            get
+            {
+                return driver.FindElement(By.XPath("//*[@id='content']/form/div/table/tbody/tr/td[4]/div/span/button[1]"));
+            }
+        }
+        private IWebElement DeleteProduct1Button
+        {
+            get
+            {
+                return driver.FindElement(By.XPath("//*[@id='content']/form/div/table/tbody/tr/td[4]/div/span/button[2]"));
+            }
+        }
+        private IWebElement DeleteProduct2Button
+        {
+            get
+            {
+                return driver.FindElement(By.XPath("//*[@id='content']/form/div/table/tbody/tr[2]/td[4]/div/span/button[2]"));
+            }
+        }
+        private IWebElement DeleteProduct3Button
+        {
+            get
+            {
+                return driver.FindElement(By.XPath("//*[@id='content']/form/div/table/tbody/tr[3]/td[4]/div/span/button[2]"));
+            }
+        }
+        private IWebElement Continue
+        {
+            get
+            {
+                return driver.FindElement(By.XPath("//*[@id='content']/div/div/a"));
+            }
+        }
+        private IWebElement CheckoutButton
+        {
+            get
+            {
+                return driver.FindElement(By.LinkText("Checkout"));
+            }
+        }
 
-        private IWebElement Continue;
-        private IWebElement Subtotal { get; }
-        private IWebElement Total { get; }
-        private IWebElement CheckoutButton;
-
-        public ShoppingCart(WebDriver driver)
+        public ShoppingCart(WebDriver driver) : base(driver)
         {
             this.driver = driver;
-
-            try
-            {
-                RefreshProductButton = driver.FindElement(By.XPath("//*[@id='content']/form/div/table/tbody/tr/td[4]/div/span/button[1]"));
-            } catch (NoSuchElementException) { }
-
-            try
-            {
-                DeleteProduct1Button = driver.FindElement(By.XPath("//*[@id='content']/form/div/table/tbody/tr/td[4]/div/span/button[2]"));
-            }
-            catch (NoSuchElementException) { }
-            
-            try
-            { 
-                DeleteProduct2Button = driver.FindElement(By.XPath("//*[@id='content']/form/div/table/tbody/tr[2]/td[4]/div/span/button[2]"));
-                DeleteProduct3Button = driver.FindElement(By.XPath("//*[@id='content']/form/div/table/tbody/tr[3]/td[4]/div/span/button[2]"));
-            }
-            catch (NoSuchElementException) { }
-            catch (NoSuchWindowException) { }
-
-            Subtotal = driver.FindElement(By.XPath("//*[@id='content']/div[2]/div/table/tbody/tr[1]/td[2]"));
-            Total = driver.FindElement(By.XPath("//*[@id='content']/div[2]/div/table/tbody/tr[4]/td[2]"));
-            CheckoutButton = driver.FindElement(By.LinkText("Checkout"));
         }
 
         public void RefreshProduct()
@@ -51,7 +61,7 @@ namespace OpencartTesting.Pages
         }
         public void RemoveProduct1()
         {
-            driver.FindElement(By.XPath("//*[@id='content']/form/div/table/tbody/tr/td[4]/div/span/button[2]")).Click();
+            DeleteProduct1Button.Click();
         }
         public void RemoveProduct2()
         {
@@ -63,15 +73,15 @@ namespace OpencartTesting.Pages
         }
         public void ClickContinue()
         {
-            Continue = driver.FindElement(By.XPath("//*[@id='content']/div/div/a"));
+            Continue.Click();
         }
         public string getCartUpdatedMessage()
         {
             try
             {
                 return driver.FindElement(By.XPath("//*[@id='checkout - cart']/div[1]")).Text;
-            } 
-            catch (NoSuchElementException) 
+            }
+            catch (NoSuchElementException)
             {
                 return null;
             }

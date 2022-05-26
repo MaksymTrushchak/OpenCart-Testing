@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using OpenQA.Selenium;
-using AHeaderComponentsOpencart;
+﻿using OpenQA.Selenium;
 
-
-namespace LoginsPages.PageObject
+namespace OpencartTesting.Pages
 {
-    public class LoginPage : AHeaderComponents
+    public class LoginPage : MainPageHeader
     {
-
-
-        public LoginPage(IWebDriver driver) : base(driver)
+        public LoginPage(WebDriver driver) : base(driver)
         {
             this.driver = driver;
         }

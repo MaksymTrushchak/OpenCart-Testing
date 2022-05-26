@@ -3,49 +3,114 @@ using OpenQA.Selenium.Chrome;
 
 namespace OpencartTesting.Pages
 {
-    abstract class MainPageHeader
+    public class MainPageHeader
     {
-        protected WebDriver driver;
-
-        private IWebElement currency;
-        private IWebElement myAccount;
-        private IWebElement wishlist;
-        private IWebElement shoppingCart;
-        private IWebElement checkout;
-
-        private IWebElement logo;
-        private IWebElement searchBar;
-        private IWebElement searchButton;
-        private IWebElement cartButton;
-        private IWebElement total;
-
-        private IWebElement topMenu;
-
+        public WebDriver driver;
         public MainPageHeader(WebDriver driver)
         {
             this.driver = driver;
-
-            currency = driver.FindElement(By.XPath("//*[@id='form - currency']/div/button"));
-            myAccount = driver.FindElement(By.XPath("//*[@id='top - links']/ul/li[2]"));
-            wishlist = driver.FindElement(By.XPath("//*[@id='top - links']/ul/li[3]"));
-            shoppingCart = driver.FindElement(By.XPath("//*[@id='top - links']/ul/li[4]"));
-            checkout = driver.FindElement(By.XPath("//*[@id='top - links']/ul/li[5]"));
-
-            logo = driver.FindElement(By.CssSelector("#logo > a"));
-            searchBar = driver.FindElement(By.Name("search"));
-            searchButton = driver.FindElement(By.CssSelector(".btn.btn-default.btn-lg"));
-            cartButton = driver.FindElement(By.XPath("//*[@id='cart']/button"));
-            total = driver.FindElement(By.CssSelector("#cart-total"));
-
-            topMenu = driver.FindElement(By.CssSelector("//*[@id='menu']/div[2]/ul"));
         }
 
-        public IWebElement GetCurrency() => driver.FindElement(By.XPath("//*[@id='form-currency']/div/button/strong"));
+        public IWebElement shoppingCart
+        {
+            get
+            {
+                return driver.FindElement(By.XPath("//*[@id='top - links']/ul/li[4]"));
+            }
+        }
+        public IWebElement checkout
+        {
+            get
+            {
+                return driver.FindElement(By.XPath("//*[@id='top - links']/ul/li[5]"));
+            }
+        }
+        public IWebElement cartButton
+        {
+            get
+            {
+                return driver.FindElement(By.XPath("//*[@id='cart']/button"));
+            }
+        }
+        private IWebElement total
+        {
+            get
+            {
+                return driver.FindElement(By.CssSelector("#cart-total"));
+            }
+        }
         public void ClickShoppingCart() { shoppingCart.Click(); }
         public void ClickCheckout() { checkout.Click(); }
         public void ViewCart() { cartButton.Click(); }
 
-        public IWebElement getCartButton() => cartButton;
-        public IWebElement getTotal() => total;
+        public IWebElement MyAccountButton
+        {
+            get
+            {
+                return driver.FindElement(By.XPath("//a[@class=\"dropdown-toggle\"]"));
+            }
+        }
+        public IWebElement LoginPageButton
+        {
+            get
+            {
+                return driver.FindElement(By.XPath("//a[contains(@href, \"http://3.68.27.146/index.php?route=account/login\")]"));
+            }
+        }
+        public IWebElement Logo
+        {
+            get
+            {
+                return driver.FindElement(By.XPath("//*[@id=\"logo\"]/a/img"));
+            }
+        }
+        public IWebElement WishList
+        {
+            get
+            {
+                return driver.FindElement(By.Id("wishlist-total"));
+            }
+        }
+        public IWebElement ListView
+        {
+            get
+            {
+                return driver.FindElement(By.XPath("//button[@id='list-view']"));
+            }
+        }
+        public IWebElement AddProduct
+        {
+            get
+            {
+                return driver.FindElement(By.XPath("//*[@id='content']/div[2]/div[1]/div/div[3]/button[2]"));
+            }
+        }
+        public void MyAccountButtonClick() => MyAccountButton.Click();
+        public void LoginPageButtonClick() => LoginPageButton.Click();
+        public void addProductClick() => AddProduct.Click();
+        public void ListViewClick() => ListView.Click();
+        public void LogoClick() => Logo.Click();
+        public void WishListClick() => WishList.Click();
+
+        public IWebElement SearchBar
+        {
+            get
+            {
+                return driver.FindElement(By.XPath("//button[@type='button'] [@class= 'btn btn-default btn-lg']"));
+            }
+        }
+        public IWebElement SearchButton
+        {
+            get
+            {
+                return driver.FindElement(By.Name("search"));
+            }
+        }
+        public void ClickSearchBar() => SearchBar.Click();
+        public void SetSearchBarText(string text)
+        {
+            SearchBar.SendKeys(text);
+        }
+        public void ClickSearchButton() => SearchButton.Click();
     }
 }
