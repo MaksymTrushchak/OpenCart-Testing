@@ -1,16 +1,17 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Chrome.ChromeDriverExtensions;
-using OpencartTesting.Pages;
-using OpencartTesting.Tools;
+
 using NUnit.Framework;
 using NUnit.Allure.Attributes;
 using NUnit.Allure.Core;
 using Allure.Commons;
 
+using OpencartTesting.Pages;
+using OpencartTesting.Tools;
+
 using System;
 using System.Threading;
-
 
 namespace OpencartTesting.Tests
 {
