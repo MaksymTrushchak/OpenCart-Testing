@@ -78,7 +78,7 @@ namespace OpencartTesting.Tests
             Thread.Sleep(500);
 
             cart.RemoveProduct3();
-            cart.RemoveProduct
+            cart.RemoveProduct2();
             cart.RemoveProduct1();
             // Only for Presentation
             Thread.Sleep(1000);
