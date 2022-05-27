@@ -22,7 +22,7 @@ namespace OpencartTesting.Tests
     [Category("SearchPage")]
     public class SearchPageTest : TestRunner
     {
-        protected override string OpenCartURL { get => "http://localhost/index.php?route=product/search"; }
+        protected override string OpenCartURL { get => "http://3.68.27.146/index.php?route=product/search"; }
 
 
         [Test]

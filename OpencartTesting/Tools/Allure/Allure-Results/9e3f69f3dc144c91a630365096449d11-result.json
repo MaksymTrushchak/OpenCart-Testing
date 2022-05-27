@@ -1,0 +1,84 @@
+{
+  "uuid": "9f74e1e3-c98c-4cfa-82d6-b94b3cac8265-tr-0-1003",
+  "historyId": "OpencartTesting.Tests.SearchPageTest.SearchInDescriptionTest",
+  "fullName": "OpencartTesting.Tests.SearchPageTest.SearchInDescriptionTest",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "DESKTOP-KHH8JKR"
+    },
+    {
+      "name": "package",
+      "value": "OpencartTesting.Tests"
+    },
+    {
+      "name": "testMethod",
+      "value": "SearchInDescriptionTest"
+    },
+    {
+      "name": "testClass",
+      "value": "SearchPageTest"
+    },
+    {
+      "name": "tag",
+      "value": "SearchPage"
+    },
+    {
+      "name": "tag",
+      "value": "SearchPage"
+    },
+    {
+      "name": "severity",
+      "value": "normal"
+    },
+    {
+      "name": "owner",
+      "value": "MaxTr"
+    }
+  ],
+  "links": [],
+  "name": "SearchInDescriptionTest",
+  "status": "failed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "OpenQA.Selenium.WebDriverException : unknown error: cannot determine loading status\nfrom disconnected: received Inspector.detached event\n  (Session info: chrome=101.0.4951.67)\r\nTearDown : OpenQA.Selenium.NoSuchWindowException : no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=101.0.4951.67)",
+    "trace": "   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.set_Url(String value)\r\n   at OpenQA.Selenium.Remote.RemoteNavigator.GoToUrl(String url)\r\n   at OpencartTesting.Tools.TestRunner.BeforeEachMethod() in C:\\Users\\maxtr\\OneDrive\\Робочий стіл\\SoftServe\\Demo_3\\OpencartTesting\\OpencartTesting\\Tools\\TestRunner.cs:line 26\r\n--TearDown\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.Close()\r\n   at OpencartTesting.Tools.TestRunner.AfterEachMethod() in C:\\Users\\maxtr\\OneDrive\\Робочий стіл\\SoftServe\\Demo_3\\OpencartTesting\\OpencartTesting\\Tools\\TestRunner.cs:line 31"
+  },
+  "stage": "finished",
+  "description": "\nBeforeEachMethod SetUp method failed\n\nAfterEachMethod TearDown method failed\n",
+  "steps": [
+    {
+      "name": "SearchInDescriptionTest skipped because of BeforeEachMethod failure",
+      "status": "skipped",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "OpenQA.Selenium.WebDriverException : unknown error: cannot determine loading status\nfrom disconnected: received Inspector.detached event\n  (Session info: chrome=101.0.4951.67)\r\nTearDown : OpenQA.Selenium.NoSuchWindowException : no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=101.0.4951.67)",
+        "trace": "   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.set_Url(String value)\r\n   at OpenQA.Selenium.Remote.RemoteNavigator.GoToUrl(String url)\r\n   at OpencartTesting.Tools.TestRunner.BeforeEachMethod() in C:\\Users\\maxtr\\OneDrive\\Робочий стіл\\SoftServe\\Demo_3\\OpencartTesting\\OpencartTesting\\Tools\\TestRunner.cs:line 26\r\n--TearDown\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.Close()\r\n   at OpencartTesting.Tools.TestRunner.AfterEachMethod() in C:\\Users\\maxtr\\OneDrive\\Робочий стіл\\SoftServe\\Demo_3\\OpencartTesting\\OpencartTesting\\Tools\\TestRunner.cs:line 31"
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "831a90437e014c9b9d20342ee98d9c7a-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1653564129026,
+      "stop": 1653564130913
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1653564129026,
+  "stop": 1653564130915
+}
