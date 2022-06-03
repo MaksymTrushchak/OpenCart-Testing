@@ -20,7 +20,7 @@ namespace OpencartTesting.Tools
         public void BeforeEachMethod()
         {
             
-            driver = new ChromeDriver(@"C:\Users\maxtr\OneDrive\Робочий стіл\SoftServe\Drivers");
+            driver = new ChromeDriver();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
             driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl(OpenCartURL);
