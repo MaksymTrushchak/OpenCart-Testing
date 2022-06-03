@@ -78,16 +78,22 @@ namespace OpencartTesting.Tests
             Thread.Sleep(500);
 
             cart.RemoveProduct3();
+            // Only for Presentation
+            Thread.Sleep(500);
+
             cart.RemoveProduct2();
+            // Only for Presentation
+            Thread.Sleep(500);
+
+            driver.Navigate().Refresh();
             cart.RemoveProduct1();
             // Only for Presentation
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
 
             actualResult = driver.FindElement(By.CssSelector("#content > p")).Text;
             Assert.AreEqual(expectedResult, actualResult);
-
             // Only for Presentation
-            cart.ClickContinue();
+            Thread.Sleep(1000);
         }
 
         [AllureTag("RefreshCart")]
@@ -115,12 +121,8 @@ namespace OpencartTesting.Tests
             ShoppingCart cart = new ShoppingCart(driver);
             cart.RefreshProduct();
 
-            try
-            {
-                actualResult = cart.getCartUpdatedMessage();
-                StringAssert.Contains(expectedResult, actualResult);
-            }
-            catch (ArgumentException) { }
+            actualResult = driver.FindElement(By.XPath("/html/body/div[2]/div[1]")).Text;
+            StringAssert.Contains(expectedResult, actualResult);
         }
         
         static void GoToMainPage(WebDriver driver)
