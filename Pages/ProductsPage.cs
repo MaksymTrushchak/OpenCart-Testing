@@ -12,21 +12,21 @@ namespace OpencartTesting.Pages
         {
             get
             {
-                return driver.FindElement(By.XPath("//*[@id='content']/div[2]/div[1]/div/div[2]/div[2]/button[1]"));
+                return driver.FindElement(By.XPath("//div[1]/div/div[2]/div[2]/button[1]"));
             }
         }
         public IWebElement Product2ToCart
         {
             get
             {
-                return driver.FindElement(By.XPath("//*[@id='content']/div[2]/div[2]/div/div[2]/div[2]/button[1]"));
+                return driver.FindElement(By.XPath("//div[2]/div/div[2]/div[2]/button[1]"));
             }
         }
         public IWebElement Product3ToCart
         {
             get
             {
-                return driver.FindElement(By.XPath("//*[@id='content']/div[2]/div[3]/div/div[2]/div[2]/button[1]"));
+                return driver.FindElement(By.XPath("//div[3]/div/div[2]/div[2]/button[1]"));
             }
         }
 

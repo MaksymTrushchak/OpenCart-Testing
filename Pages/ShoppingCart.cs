@@ -8,42 +8,42 @@ namespace OpencartTesting.Pages
     {
         public WebDriver driver;
 
-        private IWebElement RefreshProductButton
+        public IWebElement RefreshProductButton
         {
             get
             {
                 return driver.FindElement(By.XPath("//*[@id='content']/form/div/table/tbody/tr/td[4]/div/span/button[1]"));
             }
         }
-        private IWebElement DeleteProduct1Button
+        public IWebElement DeleteProduct1Button
         {
             get
             {
                 return driver.FindElement(By.XPath("//table/tbody/tr/td[4]/div/span/button[2]"));
             }
         }
-        private IWebElement DeleteProduct2Button
+        public IWebElement DeleteProduct2Button
         {
             get
             {
                 return driver.FindElement(By.XPath("//table/tbody/tr[2]/td[4]/div/span/button[2]"));
             }
         }
-        private IWebElement DeleteProduct3Button
+        public IWebElement DeleteProduct3Button
         {
             get
             {
                 return driver.FindElement(By.XPath("//table/tbody/tr[3]/td[4]/div/span/button[2]"));
             }
         }
-        private IWebElement Continue
+        public IWebElement Continue
         {
             get
             {
                 return driver.FindElement(By.XPath("//*[@id='content']/div/div/a"));
             }
         }
-        private IWebElement CheckoutButton
+        public IWebElement CheckoutButton
         {
             get
             {
