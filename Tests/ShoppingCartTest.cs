@@ -32,17 +32,12 @@ namespace OpencartTesting.Tests
             ProductsPage items = new ProductsPage(driver);
 
             items.AddProduct1ToCart();
-            // Only for Presentation
-            Thread.Sleep(500);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
 
             items.AddProduct2ToCart();
-            // Only for Presentation
-            Thread.Sleep(500);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
 
             items.AddProduct3ToCart();
-            // Only for Presentation
-            Thread.Sleep(500);
-
             GoToCart(driver);
 
             Assert.IsNotNull(driver.FindElement(By.XPath("//*[@id='content']/form/div/table/tbody/tr[3]/td[2]")));
@@ -61,39 +56,27 @@ namespace OpencartTesting.Tests
             ProductsPage items = new ProductsPage(driver);
 
             items.AddProduct1ToCart();
-            // Only for Presentation
-            Thread.Sleep(500);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(3);
 
             items.AddProduct2ToCart();
-            // Only for Presentation
-            Thread.Sleep(500);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(3);
 
             items.AddProduct3ToCart();
-            // Only for Presentation
-            Thread.Sleep(500);
 
             GoToCart(driver);
             ShoppingCart cart = new ShoppingCart(driver);
-            // Only for Presentation
-            Thread.Sleep(500);
 
             cart.RemoveProduct3();
-            // Only for Presentation
-            Thread.Sleep(500);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(3);
 
             cart.RemoveProduct2();
-            // Only for Presentation
-            Thread.Sleep(500);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(3);
 
             driver.Navigate().Refresh();
             cart.RemoveProduct1();
-            // Only for Presentation
-            Thread.Sleep(500);
 
             actualResult = driver.FindElement(By.CssSelector("#content > p")).Text;
             Assert.AreEqual(expectedResult, actualResult);
-            // Only for Presentation
-            Thread.Sleep(1000);
         }
 
         [AllureTag("RefreshCart")]
@@ -107,9 +90,6 @@ namespace OpencartTesting.Tests
 
             GoToPhonesAndPDAs(driver);
             ProductsPage items = new ProductsPage(driver);
-
-            // Only for Presentation
-            Thread.Sleep(1000);
 
             for (int i = 0; i < 2; i++)
             {
