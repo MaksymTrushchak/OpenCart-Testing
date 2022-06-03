@@ -18,21 +18,21 @@ namespace OpencartTesting.Pages
         {
             get
             {
-                return driver.FindElement(By.XPath("//*[@id='content']/form/div/table/tbody/tr/td[4]/div/span/button[2]"));
+                return driver.FindElement(By.XPath("//table/tbody/tr/td[4]/div/span/button[2]"));
             }
         }
         private IWebElement DeleteProduct2Button
         {
             get
             {
-                return driver.FindElement(By.XPath("//*[@id='content']/form/div/table/tbody/tr[2]/td[4]/div/span/button[2]"));
+                return driver.FindElement(By.XPath("//table/tbody/tr[2]/td[4]/div/span/button[2]"));
             }
         }
         private IWebElement DeleteProduct3Button
         {
             get
             {
-                return driver.FindElement(By.XPath("//*[@id='content']/form/div/table/tbody/tr[3]/td[4]/div/span/button[2]"));
+                return driver.FindElement(By.XPath("//table/tbody/tr[3]/td[4]/div/span/button[2]"));
             }
         }
         private IWebElement Continue
