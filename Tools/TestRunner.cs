@@ -9,10 +9,12 @@ namespace OpencartTesting.Tools
     {
         protected WebDriver driver;
         protected abstract string OpenCartURL { get; }
+        protected ChromeOptions options = new ChromeOptions();
         
         [SetUp]
         public void BeforeEachMethod()
         {
+            options.BinaryLocation = "/usr/bin/chromium";
             driver = new ChromeDriver("/usr/bin/chromedriver");
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
             driver.Manage().Window.Maximize();
