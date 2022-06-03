@@ -40,7 +40,7 @@ namespace OpencartTesting.Tests
             items.AddProduct3ToCart();
             GoToCart(driver);
 
-            Assert.IsNotNull(driver.FindElement(By.XPath("//*[@id='content']/form/div/table/tbody/tr[3]/td[2]")));
+            Assert.IsNotNull(driver.FindElement(By.XPath("//table/tbody/tr[3]/td[2]/a")));
         }
 
         [AllureTag("DeleteFromCart")]
