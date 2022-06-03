@@ -69,6 +69,7 @@ namespace OpencartTesting.Tests
             cart.RemoveProduct3();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(3);
 
+            cart = new ShoppingCart(driver);
             cart.RemoveProduct2();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(3);
 
