@@ -23,7 +23,7 @@ namespace OpencartTesting.Tools
             options.AddArguments("--no-sandbox"); // Bypass OS security model
             options.AddArgument("headless");
 
-            driver = new ChromeDriver("/usr/bin/");
+            driver = new ChromeDriver("/usr/bin/", options);
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
             driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl(OpenCartURL);
