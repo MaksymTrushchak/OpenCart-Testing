@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System;
 
 namespace OpencartTesting.Pages
 {
@@ -61,14 +62,17 @@ namespace OpencartTesting.Pages
         }
         public void RemoveProduct1()
         {
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
             DeleteProduct1Button.Click();
         }
         public void RemoveProduct2()
         {
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
             DeleteProduct2Button.Click();
         }
         public void RemoveProduct3()
         {
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
             DeleteProduct3Button.Click();
         }
         public void ClickContinue()
