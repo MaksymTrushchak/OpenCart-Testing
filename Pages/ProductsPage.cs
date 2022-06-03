@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System.Collections.Generic;
+using System;
 
 namespace OpencartTesting.Pages
 {
@@ -35,14 +36,17 @@ namespace OpencartTesting.Pages
         }
         public void AddProduct1ToCart()
         {
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
             Product1ToCart.Click();
         }
         public void AddProduct2ToCart()
         {
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
             Product2ToCart.Click();
         }
         public void AddProduct3ToCart()
         {
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
             Product3ToCart.Click();
         }
         public void NavigateToPhonesAndPDAs()
