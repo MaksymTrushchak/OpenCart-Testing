@@ -14,4 +14,4 @@ tests:
 	ShoppingCartTest  
 	WishlistTest  
   
-<img src="oct_arch.png" alt="Project Diagram">
+<img src="project_arch.png" alt="Project Diagram">
