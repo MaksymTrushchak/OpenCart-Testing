@@ -1,5 +1,5 @@
 # OpenCart Testing
-<img src="oct_arch.png" alt="Architecture Diagram">
+<img src="oct_arch.png" alt="Page Object Architecture Diagram">
 
 implemented architecture:  
 	LoginPage  
@@ -13,3 +13,5 @@ tests:
 	SearchTest  
 	ShoppingCartTest  
 	WishlistTest  
+  
+<img src="oct_arch.png" alt="Project Diagram">
